@@ -70,6 +70,9 @@
             var countTime = countHour + countMinute + countSecond
             var time = setInterval(function() {
                 countTime--
+                if (countTime <= 0) {
+                    clearInterval(time)
+                }
                 currentHour = parseInt(countTime / 3600)
                 currentMinute = parseInt((countTime - currentHour * 3600) / 60)
                 currentSecond = parseInt(countTime - currentHour * 3600 - currentMinute * 60)
