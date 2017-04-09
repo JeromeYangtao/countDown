@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: flex;
+            background-image: url("bg.png");
+            width: 600px;
+            height: 450px;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .wrapper>div {
+            border-radius: 7px;
+            background-color: rgba(0, 0, 0, 0.561);
+            box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.1), inset 0px 2px 2px 0px rgba(0, 0, 0, 0.72);
+            width: 150px;
+            height: 100px;
+            text-align: center;
+        }
+        
+        .wrapper>div>span {
+            font-size: 68px;
+        }
+        
+        .wrapper>button {
+            align-self: bottom;
+            width: 170px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.561);
+            box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.1), inset 0px 2px 2px 0px rgba(0, 0, 0, 0.72);
+            border-radius: 7px;
+            font-size: 34px;
+            line-height: 34px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="hour">
+            <span id="hour">06</span>:
+        </div>
+        <div class="minute">
+            <span id="minute">30</span>:
+        </div>
+        <div class="second">
+            <span id="second">40</span>
+        </div>
+        <button id="start">开始</button>
+    </div>
+
+
+
+    <script>
+        start.addEventListener('click', function() {
+            var currentHour, currentMinute, currentSecond,
+                countHour, countMinute, countSecond
+
+            countHour = hour.innerHTML * 3600
+            countMinute = minute.innerHTML * 60
+            countSecond = second.innerHTML * 1
+            var countTime = countHour + countMinute + countSecond
+            var time = setInterval(function() {
+                countTime--
+                currentHour = parseInt(countTime / 3600)
+                currentMinute = parseInt((countTime - currentHour * 3600) / 60)
+                currentSecond = parseInt(countTime - currentHour * 3600 - currentMinute * 60)
+                hour.innerHTML = currentHour
+                minute.innerHTML = currentMinute
+                second.innerHTML = currentSecond
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html>
