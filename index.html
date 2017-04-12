@@ -60,7 +60,13 @@
 
 
     <script>
+        var countStart = false
         start.addEventListener('click', function() {
+            if (countStart === true) {
+                return false
+            }
+            countStart = true
+
             var currentHour, currentMinute, currentSecond,
                 countHour, countMinute, countSecond
 
@@ -79,6 +85,7 @@
                 hour.innerHTML = currentHour
                 minute.innerHTML = currentMinute
                 second.innerHTML = currentSecond
+                console.log(currentSecond)
             }, 1000)
         })
     </script>
