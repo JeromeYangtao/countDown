@@ -61,11 +61,15 @@
 
     <script>
         var countStart = false
+        var time
         start.addEventListener('click', function() {
             if (countStart === true) {
+                countStart = false
+                clearInterval(time)
                 return false
             }
             countStart = true
+            start.innerHTML = '暂停'
 
             var currentHour, currentMinute, currentSecond,
                 countHour, countMinute, countSecond
@@ -74,7 +78,7 @@
             countMinute = minute.innerHTML * 60
             countSecond = second.innerHTML * 1
             var countTime = countHour + countMinute + countSecond
-            var time = setInterval(function() {
+            time = setInterval(function() {
                 countTime--
                 if (countTime <= 0) {
                     clearInterval(time)
@@ -85,7 +89,6 @@
                 hour.innerHTML = currentHour
                 minute.innerHTML = currentMinute
                 second.innerHTML = currentSecond
-                console.log(currentSecond)
             }, 1000)
         })
     </script>
